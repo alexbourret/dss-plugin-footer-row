@@ -1,0 +1,57 @@
+{
+    "meta": {
+        "label": "Compute",
+        "description": "Compute the footer row for any columns",
+        "icon": "icon-plus-sign-alt"
+    },
+    "kind": "PYTHON",
+    "selectableFromDataset": "input_A_role",
+    "inputRoles": [
+        {
+            "name": "input_A_role",
+            "label": "Dataset to compute footnote computations on",
+            "description": "",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "main_output",
+            "label": "Dataset containaing result footnot row",
+            "description": "",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "columns",
+            "label": "Columns",
+            "description": "Add the columns to process",
+            "type": "OBJECT_LIST",
+            "subParams": [
+                {
+                    "name": "column",
+                    "label": "Column name",
+                    "description": "",
+                    "type": "COLUMN",
+                    "columnRole": "input_A_role"
+                },
+                {
+                    "name": "operation",
+                    "label": "Operation to perform",
+                    "type": "SELECT",
+                    "description": "",
+                    "selectChoices": [
+                        {"value": "concatenate", "label": "Concatenate"}
+                    ]
+                }
+            ]
+        }
+    ],
+    "resourceKeys": []
+}
