@@ -47,7 +47,8 @@
                     "type": "SELECT",
                     "description": "",
                     "selectChoices": [
-                        {"value": "concatenate", "label": "Concatenate"}
+                        {"value": "concatenate", "label": "Concatenate"},
+                        {"value": "total", "label": "Total"}
                     ]
                 }
             ]
