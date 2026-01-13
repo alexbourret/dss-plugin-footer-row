@@ -1,3 +1,6 @@
+import numpy
+
+
 class ColumnProcessor():
     stack = []
     end_result = None
@@ -19,7 +22,8 @@ class ColumnProcessor():
         if self.operation == "concatenate":
             self.end_result = self.end_result + self.separator + value
         elif self.operation == "total":
-            self.end_result = self.end_result + float(value)
+            if value is not None and not numpy.isnan(value):
+                self.end_result = self.end_result + float(value)
 
     def compute(self):
         if self.operation in ["concatenate", "total"]:
