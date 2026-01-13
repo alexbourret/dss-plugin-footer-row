@@ -12,13 +12,17 @@ class ColumnProcessor():
                 self.separator = str(separator)
             else:
                 self.separator = ""
+        elif self.operation == "total":
+            self.end_result = 0.
 
     def ingest(self, value):
         if self.operation == "concatenate":
             self.end_result = self.end_result + self.separator + value
+        elif self.operation == "total":
+            self.end_result = self.end_result + float(value)
 
     def compute(self):
-        if self.operation == "concatenate":
+        if self.operation in ["concatenate", "total"]:
             return self.end_result
 
     def get_column_name(self):
